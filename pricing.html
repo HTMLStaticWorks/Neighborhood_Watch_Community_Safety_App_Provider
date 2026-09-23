@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWatch - Pricing for HOAs & Neighborhoods</title>
+  <meta name="description" content="Affordable neighborhood safety plans for individuals, community groups, and HOAs. Free for residents, plans starting at $9.99/mo.">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+  <!-- Drawer Overlay & Menu -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <button class="icon-btn drawer-close" aria-label="Close menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html" class="drawer-link">Home</a>
+      <a href="home2.html" class="drawer-link">Home 2</a>
+      <a href="solutions.html" class="drawer-link">How</a>
+      <a href="pricing.html" class="drawer-link active text-accent" aria-current="page">Pricing</a>
+      <a href="equipment.html" class="drawer-link">Features</a>
+      <a href="contact.html" class="drawer-link">Contact</a>
+      <a href="dashboard.html" class="drawer-link">Dashboard</a>
+  </nav>
+    <div class="drawer-actions flex-col gap-4">
+      <div class="flex items-center gap-2" style="width: 100%;">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Login</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="solutions.html" class="nav-link">How</a>
+        <a href="pricing.html" class="nav-link active">Pricing</a>
+        <a href="equipment.html" class="nav-link">Features</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+  </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="hero-padding bg-tertiary text-center pb-16">
+      <div class="container animate-fade-up">
+        <h1 class="mb-6">Affordable plans for <br><span class="text-accent">every neighborhood</span></h1>
+        <p class="lead mx-auto" style="max-width: 600px;">SafeWatch is free for individual residents. Upgrade your entire neighborhood or HOA to unlock powerful community management and analytics tools.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section>
+      <div class="container">
+        <div class="grid grid-cols-3 gap-6 pricing-grid">
+          
+          <!-- Resident Free -->
+          <div class="card pricing-card">
+            <div class="badge mb-4">Individual Residents</div>
+            <h3 class="mb-2">Resident</h3>
+            <p class="text-secondary mb-6">Perfect for individual residents who want to stay connected and report incidents in their neighborhood.</p>
+            <div class="mb-6 price-row">
+              <span class="rate-figure text-primary">Free</span>
+              <span class="text-muted font-weight-label ml-2">forever</span>
+            </div>
+            <ul class="flex-col gap-4 text-secondary mb-8 w-full pricing-features" style="width: 100%;">
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Incident reporting (unlimited)</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Community alert feed access</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Safety tips library</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Push & email notifications</li>
+            </ul>
+            <a href="register.html" class="btn btn-outline" style="width: 100%;">Join Free</a>
+          </div>
+
+          <!-- Community Plan -->
+          <div class="card pricing-card" style="border: 2px solid var(--accent-color); position: relative;">
+            <div class="badge mb-4" style="background-color: var(--accent-color); color: #fff;">Most Popular</div>
+            <h3 class="mb-2">Community</h3>
+            <p class="text-secondary mb-6">Best for small neighborhoods, block groups, and informal community watch teams of any size.</p>
+            <div class="mb-6 price-row">
+              <span class="rate-figure text-primary">$9.99</span>
+              <span class="text-muted font-weight-label ml-2">/ mo</span>
+            </div>
+            <ul class="flex-col gap-4 text-secondary mb-8 w-full pricing-features" style="width: 100%;">
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Everything in Resident</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Neighborhood group management</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Group chat & messaging</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Patrol scheduling tools</li>
+            </ul>
+            <a href="register.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
+          </div>
+
+          <!-- HOA Pro -->
+          <div class="card bg-tertiary pricing-card" style="border: none;">
+            <div class="badge mb-4" style="background-color: var(--primary-color); color: var(--bg-secondary);">HOA & Property Managers</div>
+            <h3 class="mb-2">HOA Pro</h3>
+            <p class="text-secondary mb-6">Full-featured platform for HOAs, property managers, and large community organizations with advanced tools.</p>
+            <div class="mb-6 price-row">
+              <span class="rate-figure text-primary">$29.99</span>
+              <span class="text-muted font-weight-label ml-2">/ mo</span>
+            </div>
+            <ul class="flex-col gap-4 text-secondary mb-8 w-full pricing-features" style="width: 100%;">
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Everything in Community</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Advanced safety analytics</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> HOA board management portal</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Priority support & onboarding</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline" style="width: 100%; border-color: var(--primary-color); color: var(--primary-color);">Contact Us</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="bg-primary pb-16 pt-16">
+      <div class="container">
+        <div class="card surface-ink" style="color: #fff; padding: var(--space-12); border: none; text-align: left; align-items: flex-start;">
+          <div class="grid grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="mb-4" style="color: #fff;">What we <span class="text-accent">never</span> charge for.</h2>
+              <p class="lead mb-0" style="color: rgba(255,255,255,0.8);">SafeWatch is built on community trust, not hidden fees. We believe neighborhood safety should be accessible to everyone.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-x-circle text-accent" style="font-size: 1.5rem;"></i>
+                <span class="font-weight-label">No Setup Fees</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-x-circle text-accent" style="font-size: 1.5rem;"></i>
+                <span class="font-weight-label">No Cancellation Fees</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-x-circle text-accent" style="font-size: 1.5rem;"></i>
+                <span class="font-weight-label">No Ads or Data Selling</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-x-circle text-accent" style="font-size: 1.5rem;"></i>
+                <span class="font-weight-label">No Per-Report Fees</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-x-circle text-accent" style="font-size: 1.5rem;"></i>
+                <span class="font-weight-label">No Long-Term Contracts</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i class="ph-fill ph-x-circle text-accent" style="font-size: 1.5rem;"></i>
+                <span class="font-weight-label">No Alert Delivery Fees</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="bg-tertiary">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <h2>Frequently asked questions</h2>
+        </div>
+        
+        <details>
+          <summary>Is SafeWatch really free for residents?</summary>
+          <div class="details-content">
+            Yes, completely. Individual residents can join SafeWatch, report incidents, receive community alerts, read safety tips, and join neighborhood groups — all at no cost, forever. We only charge HOAs and community organizations for advanced management and analytics tools.
+          </div>
+        </details>
+
+        <details>
+          <summary>How does SafeWatch protect my privacy?</summary>
+          <div class="details-content">
+            Your personal information is never sold to third parties or shared with advertisers. All reports can be submitted anonymously. We use end-to-end encryption for all messages and reports. Your home address is verified but never displayed to other users — only your neighborhood zone is shared.
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I cancel my HOA plan at any time?</summary>
+          <div class="details-content">
+            Yes. All SafeWatch paid plans are month-to-month with no long-term contracts. You can cancel at any time from your account settings. Your neighborhood group and historical data remain accessible even after cancellation.
+          </div>
+        </details>
+
+        <details>
+          <summary>How many residents can join a neighborhood group?</summary>
+          <div class="details-content">
+            There is no limit on the number of residents who can join a neighborhood group on any plan. We believe the more connected your community, the safer it is. HOA Pro plans support multiple sub-groups, block divisions, and zone management for larger communities.
+          </div>
+        </details>
+
+        <details>
+          <summary>Does SafeWatch work with local police departments?</summary>
+          <div class="details-content">
+            SafeWatch integrates with participating local law enforcement agencies through our SafeCity Partner Program. When enabled, verified incident reports can be automatically forwarded to the local non-emergency police line, with your permission. Contact us to learn if your department is a partner.
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-6">
+            <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+          </a>
+          <p class="text-muted mb-6">Empowering neighborhoods with real-time safety alerts, incident reporting, and community-driven watch groups.</p>
+          <div class="flex gap-4">
+            <a href="#" class="icon-btn" aria-label="X"><i class="ph-fill ph-x-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-facebook-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>App Features</h4>
+          <div class="footer-links">
+            <a href="equipment.html#reporting" class="footer-link">Incident Reporting</a>
+            <a href="equipment.html#alerts" class="footer-link">Community Alerts</a>
+            <a href="equipment.html#groups" class="footer-link">Watch Groups</a>
+            <a href="equipment.html#tips" class="footer-link">Safety Tips</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="pricing.html" class="footer-link">Pricing</a>
+            <a href="solutions.html" class="footer-link">How It Works</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Trust & Safety</h4>
+          <div class="footer-links">
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-shield-check"></i> End-to-End Encrypted</div>
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-lock-key"></i> SOC 2 Compliant</div>
+            <a href="#" class="footer-link mt-2">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SafeWatch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

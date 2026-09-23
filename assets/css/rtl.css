@@ -1,0 +1,100 @@
+/* RTL Overrides for PayNexa */
+
+[dir="rtl"], .rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .logo {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+  flex-direction: row-reverse;
+}
+
+/* Mirror directional arrows */
+[dir="rtl"] .btn-link i.ph-arrow-right,
+[dir="rtl"] .btn i.ph-arrow-right {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .btn-link:hover i.ph-arrow-right {
+  transform: scaleX(-1) translateX(4px);
+}
+
+/* Calculator / split panels: flip the dividing border */
+[dir="rtl"] .calc-results {
+  border-left: none;
+  border-right: 1px solid var(--border-color);
+}
+@media (max-width: 900px) {
+  [dir="rtl"] .calc-results {
+    border-right: none;
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+/* Code panel stays LTR — source code is not bidirectional */
+[dir="rtl"] .code-block-wrapper {
+  direction: ltr;
+}
+
+[dir="rtl"] .floating-stat {
+  left: auto;
+  right: -1.25rem;
+}
+
+/* Drawer slides from the left in RTL (transform-based, matches style.css) */
+[dir="rtl"] .drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .drawer-open .drawer {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .drawer-link:hover {
+  padding-left: var(--space-2);
+  padding-right: var(--space-4);
+}
+
+[dir="rtl"] .drawer-link.active {
+  padding-left: var(--space-2);
+  padding-right: var(--space-4);
+  box-shadow: inset -3px 0 0 var(--accent-color);
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Keep rate figures tabular and not mirrored */
+[dir="rtl"] .rate-figure {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Table columns flip automatically with flex/grid in RTL context, 
+   ensuring grid properties use logical ordering. */
+[dir="rtl"] .grid {
+  /* CSS grid handles RTL naturally */
+}
+
+/* Footer overrides if any */
+@media (max-width: 768px) {
+  [dir="rtl"] .footer-grid {
+    text-align: center;
+  }
+}
+
+/* Pagination arrows mirror with the reading direction */
+[dir="rtl"] .pagination-arrow i.ph-arrow-right,
+[dir="rtl"] .pagination-arrow i.ph-arrow-left {
+  transform: scaleX(-1);
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWatch - Resident Portal Login</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--bg-tertiary);
+      overflow-y: auto;
+      padding: var(--space-8) 0;
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 480px;
+      padding: var(--space-4);
+      position: relative;
+    }
+
+    .auth-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+    }
+
+    .auth-logo {
+      text-decoration: none;
+      transition: opacity var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+
+    .auth-logo:hover {
+      opacity: 0.8;
+    }
+
+    .auth-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    .auth-subheading {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: var(--space-8);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: var(--space-5);
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2);
+      display: block;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-control {
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      width: 100%;
+    }
+
+    .input-wrapper .form-control {
+      padding-inline-end: 3rem;
+    }
+
+    .input-wrapper .eye-btn {
+      position: absolute;
+      inset-inline-end: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 0;
+    }
+
+    .auth-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-8);
+      font-size: 0.9rem;
+    }
+
+    .checkbox-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--text-secondary);
+    }
+
+    .btn-pill {
+      border-radius: 50px;
+      padding: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-2);
+      cursor: pointer;
+    }
+
+    .btn-primary.btn-pill {
+      box-shadow: 0 10px 20px -5px rgba(6, 182, 212, 0.4);
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary.btn-pill:hover {
+      background: var(--accent-hover);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: var(--space-8) 0;
+      color: var(--text-muted);
+      font-size: var(--size-caption);
+      text-transform: uppercase;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .divider:not(:empty)::before {
+      margin-right: 1em;
+    }
+
+    .divider:not(:empty)::after {
+      margin-left: 1em;
+    }
+
+    .social-btn {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .social-btn:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .top-toggles {
+      position: absolute;
+      top: 1.5rem;
+      inset-inline-end: 1.5rem;
+      z-index: 50;
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    @media (max-width: 480px) {
+      .auth-card {
+        padding: 2rem 1.25rem;
+      }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+
+  <div class="top-toggles">
+    <button class="icon-btn theme-toggle" aria-label="Toggle Theme">
+      <i class="ph ph-moon"></i>
+    </button>
+    <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+      <i class="ph ph-arrows-left-right"></i>
+    </button>
+  </div>
+
+  <div class="auth-container animate-fade-up">
+    <div class="auth-card">
+
+      <a href="index.html" class="auth-logo" aria-label="SafeWatch home">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+
+      <h1 class="auth-heading">Welcome Back</h1>
+      <p class="auth-subheading">Login to your resident dashboard and community alerts</p>
+
+      <form data-validate action="dashboard.html" method="GET">
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" id="email" class="form-control" required placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" class="form-control" required placeholder="">
+            <button type="button" class="eye-btn" onclick="togglePassword('password', this)">
+              <i class="ph ph-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-options">
+          <label class="checkbox-wrap">
+            <input type="checkbox" id="remember">
+            Remember me
+          </label>
+          <a href="#" class="text-accent" style="font-weight: 500; text-decoration: none;">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-pill">Login To Account</button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <button class="btn btn-pill social-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M17.64 9.20455C17.64 8.56636 17.5827 7.95273 17.4764 7.36364H9V10.845H13.8436C13.635 11.97 13.0009 12.9232 12.0477 13.5614V15.8195H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z"
+            fill="#4285F4" />
+          <path
+            d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5614C11.2418 14.1014 10.2109 14.4205 9 14.4205C6.65591 14.4205 4.67182 12.8373 3.96409 10.71H0.957275V13.0418C2.43818 15.9832 5.48182 18 9 18Z"
+            fill="#34A853" />
+          <path
+            d="M3.96409 10.71C3.78409 10.17 3.68182 9.59318 3.68182 9C3.68182 8.40682 3.78409 7.83 3.96409 7.29H0.957275V4.95818C0.347727 6.17318 0 7.54773 0 9C0 10.4523 0.347727 11.8268 0.957275 13.0418L3.96409 10.71Z"
+            fill="#FBBC05" />
+          <path
+            d="M9 3.57955C10.3214 3.57955 11.5077 4.03364 12.4405 4.92545L15.0218 2.34409C13.4632 0.891818 11.4259 0 9 0C5.48182 0 2.43818 2.01682 0.957275 4.95818L3.96409 7.29C4.67182 5.16273 6.65591 3.57955 9 3.57955Z"
+            fill="#EA4335" />
+        </svg>
+        Continue with Google
+      </button>
+
+      <button class="btn btn-pill social-btn" style="margin-bottom: 0;">
+        <i class="ph-fill ph-apple-logo" style="font-size: 1.25rem;"></i>
+        Continue with Apple
+      </button>
+
+      <p class="text-center mt-8 font-size-caption text-secondary">
+        New to SafeWatch? <a href="register.html" class="text-accent"
+          style="font-weight: 500; text-decoration: none;">Join your neighborhood</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('ph-eye');
+        icon.classList.add('ph-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('ph-eye-slash');
+        icon.classList.add('ph-eye');
+      }
+    }
+  </script>
+</body>
+
+</html>

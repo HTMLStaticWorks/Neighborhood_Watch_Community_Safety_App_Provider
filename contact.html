@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWatch - Contact Us</title>
+  <meta name="description" content="Get in touch with the SafeWatch community team. We're here to help neighborhoods get started, answer questions, and support HOA onboarding.">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+  <!-- Drawer Overlay & Menu -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <button class="icon-btn drawer-close" aria-label="Close menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html" class="drawer-link">Home</a>
+      <a href="home2.html" class="drawer-link">Home 2</a>
+      <a href="solutions.html" class="drawer-link">How</a>
+      <a href="pricing.html" class="drawer-link">Pricing</a>
+      <a href="equipment.html" class="drawer-link">Features</a>
+      <a href="contact.html" class="drawer-link active text-accent" aria-current="page">Contact</a>
+      <a href="dashboard.html" class="drawer-link">Dashboard</a>
+  </nav>
+    <div class="drawer-actions flex-col gap-4">
+      <div class="flex items-center gap-2" style="width: 100%;">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Login</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="solutions.html" class="nav-link">How</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="equipment.html" class="nav-link">Features</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+  </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="hero-padding bg-tertiary text-center pb-16">
+      <div class="container animate-fade-up">
+        <h1 class="mb-6">Let's build a <br><span class="text-accent">safer community</span></h1>
+        <p class="lead mx-auto" style="max-width: 600px;">Whether you're a resident, block captain, HOA manager, or local organization — our community team is ready to help you get started with SafeWatch.</p>
+      </div>
+    </section>
+
+    <section class="pb-16" style="padding-top: var(--space-12);">
+      <div class="container">
+        <div class="grid grid-cols-2 gap-12">
+          
+          <!-- Contact Form -->
+          <div class="animate-fade-up">
+            <div class="card" style="align-items: stretch; text-align: left;">
+              <h3 class="mb-6 text-center">Send us a message</h3>
+              <form data-validate action="#" method="POST" novalidate>
+                
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="form-group">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" id="firstName" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="form-group">
+                    <label for="neighborhoodName" class="form-label">Neighborhood / HOA Name</label>
+                    <input type="text" id="neighborhoodName" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" id="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="inquiryType" class="form-label">How can we help?</label>
+                  <select id="inquiryType" class="form-control" required style="appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23475569%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="hoa">HOA Onboarding & Setup</option>
+                    <option value="support">Technical Support</option>
+                    <option value="partnership">Community Partnership</option>
+                    <option value="lawenforcement">Law Enforcement Integration</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea id="message" class="form-control" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full mt-4" style="width: 100%;">Send Message</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Contact Info & Map -->
+          <div class="animate-fade-up delay-200">
+            
+            <div class="grid grid-cols-2-sm gap-6 mb-8">
+              <div class="card bg-tertiary" style="padding: var(--space-4); border: none; align-items: center; text-align: center;">
+                <i class="ph-fill ph-phone-call text-accent mb-4" style="font-size: 1.5rem;"></i>
+                <h4 class="mb-1">Community Team</h4>
+                <p class="text-secondary font-size-caption mb-0">1-800-555-SAFE</p>
+              </div>
+              <div class="card bg-tertiary" style="padding: var(--space-4); border: none; align-items: center; text-align: center;">
+                <i class="ph-fill ph-headset text-accent mb-4" style="font-size: 1.5rem;"></i>
+                <h4 class="mb-1">HOA Support</h4>
+                <p class="text-secondary font-size-caption mb-0">1-800-555-0188</p>
+              </div>
+              <div class="card bg-tertiary" style="padding: var(--space-4); border: none; align-items: center; text-align: center;">
+                <i class="ph-fill ph-x-logo text-accent mb-4" style="font-size: 1.5rem;"></i>
+                <h4 class="mb-1">X (Twitter)</h4>
+                <a href="#" class="text-secondary font-size-caption mb-0" style="text-decoration: none;">@safewatch_app</a>
+              </div>
+              <div class="card bg-tertiary" style="padding: var(--space-4); border: none; align-items: center; text-align: center;">
+                <i class="ph-fill ph-linkedin-logo text-accent mb-4" style="font-size: 1.5rem;"></i>
+                <h4 class="mb-1">LinkedIn</h4>
+                <a href="#" class="text-secondary font-size-caption mb-0" style="text-decoration: none;">/company/safewatch</a>
+              </div>
+            </div>
+
+            <!-- Interactive Map -->
+            <div class="map-container mb-8 shadow-sm" style="height: 300px; border-radius: var(--radius); overflow: hidden; position: relative; background: var(--bg-tertiary);">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12096.536067713028!2d-74.01955054178556!3d40.70617631627914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1767119283%3A0xc66c1b3f79f538e1!2sFinancial%20District%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="bg-tertiary">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <h2>Frequently asked questions</h2>
+        </div>
+
+        <details>
+          <summary>How quickly will someone get back to me?</summary>
+          <div class="details-content">
+            Our community team responds to all messages within one business day, usually the same afternoon for messages sent before 3PM EST. For urgent HOA onboarding or technical issues, call our support line — it's staffed Monday through Friday 8AM–8PM EST.
+          </div>
+        </details>
+
+        <details>
+          <summary>What do I need to set up SafeWatch for my HOA?</summary>
+          <div class="details-content">
+            Getting started is simple. All we need is your HOA or neighborhood name, your general geographic boundaries (we use a boundary map tool — no technical skills needed), and one administrator email to set up the account. Most HOAs are fully live within 24 hours of signing up.
+          </div>
+        </details>
+
+        <details>
+          <summary>Can SafeWatch integrate with our existing HOA management software?</summary>
+          <div class="details-content">
+            SafeWatch offers API integration with popular HOA management platforms. We also support single sign-on (SSO) for organizations that manage resident accounts centrally. Contact our partnerships team to discuss your specific setup — we can usually accommodate custom integration requests.
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-6">
+            <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+          </a>
+          <p class="text-muted mb-6">Empowering neighborhoods with real-time safety alerts, incident reporting, and community-driven watch groups.</p>
+          <div class="flex gap-4">
+            <a href="#" class="icon-btn" aria-label="X"><i class="ph-fill ph-x-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-facebook-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>App Features</h4>
+          <div class="footer-links">
+            <a href="equipment.html#reporting" class="footer-link">Incident Reporting</a>
+            <a href="equipment.html#alerts" class="footer-link">Community Alerts</a>
+            <a href="equipment.html#groups" class="footer-link">Watch Groups</a>
+            <a href="equipment.html#tips" class="footer-link">Safety Tips</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="pricing.html" class="footer-link">Pricing</a>
+            <a href="solutions.html" class="footer-link">How It Works</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Trust & Safety</h4>
+          <div class="footer-links">
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-shield-check"></i> End-to-End Encrypted</div>
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-lock-key"></i> SOC 2 Compliant</div>
+            <a href="#" class="footer-link mt-2">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SafeWatch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

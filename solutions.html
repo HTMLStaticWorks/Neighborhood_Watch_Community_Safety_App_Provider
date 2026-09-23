@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWatch - How It Works</title>
+  <meta name="description"
+    content="Learn how SafeWatch connects your neighborhood in 4 simple steps — sign up, report incidents, receive alerts, and coordinate your community watch group.">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+  <!-- Drawer Overlay & Menu -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <button class="icon-btn drawer-close" aria-label="Close menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html" class="drawer-link">Home</a>
+      <a href="home2.html" class="drawer-link">Home 2</a>
+      <a href="solutions.html" class="drawer-link active text-accent" aria-current="page">How</a>
+      <a href="pricing.html" class="drawer-link">Pricing</a>
+      <a href="equipment.html" class="drawer-link">Features</a>
+      <a href="contact.html" class="drawer-link">Contact</a>
+      <a href="dashboard.html" class="drawer-link">Dashboard</a>
+    </nav>
+    <div class="drawer-actions flex-col gap-4">
+      <div class="flex items-center gap-2" style="width: 100%;">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Login</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="solutions.html" class="nav-link active">How</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="equipment.html" class="nav-link">Features</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="hero-padding bg-tertiary text-center pb-16">
+      <div class="container animate-fade-up">
+        <h1 class="mb-6">How SafeWatch <br><span class="text-accent">keeps you safe</span></h1>
+        <p class="lead mx-auto" style="max-width: 600px;">Getting started takes less than 5 minutes. Follow these four simple steps to connect your neighborhood, report incidents, and stay informed with real-time community alerts.</p>
+      </div>
+    </section>
+
+    <!-- Step 1: Sign Up & Join -->
+    <section id="step1">
+      <div class="container">
+        <div class="grid grid-cols-2 gap-12 items-center solution-split">
+          <div>
+            <div class="flex items-center gap-2 mb-4 text-accent">
+              <i class="ph-fill ph-user-plus" style="font-size: 1.5rem;"></i>
+              <span class="font-weight-label">Step 1</span>
+            </div>
+            <h2 class="mb-4">Sign up & join your neighborhood</h2>
+            <p class="lead mb-6">Create your free account and enter your address. SafeWatch automatically connects you to your verified neighborhood group, HOA, or block watch team — no invitations needed.</p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="card" style="padding: var(--space-4);">
+                <i class="ph ph-map-pin text-accent mb-2" style="font-size: 2rem;"></i>
+                <h5 class="mb-1">Address Verification</h5>
+                <p class="font-size-caption text-muted">Secure address confirmation ensures only real neighbors join your group.</p>
+              </div>
+              <div class="card" style="padding: var(--space-4);">
+                <i class="ph ph-shield-check text-accent mb-2" style="font-size: 2rem;"></i>
+                <h5 class="mb-1">Identity Protection</h5>
+                <p class="font-size-caption text-muted">Your personal details are never shared with other residents without your consent.</p>
+              </div>
+            </div>
+            <a href="register.html" class="btn btn-primary">Create Free Account</a>
+          </div>
+          <div>
+            <img src="assets/images/solution-retail-checkout-lines.jpg" alt="Resident signing up and joining neighborhood on SafeWatch app"
+              class="rounded shadow-card" style="border-radius: var(--radius);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Report an Incident -->
+    <section id="step2" class="bg-tertiary">
+      <div class="container">
+        <div class="grid grid-cols-2 gap-12 items-center reverse-desktop solution-split">
+          <div>
+            <div class="flex items-center gap-2 mb-4 text-accent">
+              <i class="ph-fill ph-warning-octagon" style="font-size: 1.5rem;"></i>
+              <span class="font-weight-label">Step 2</span>
+            </div>
+            <h2 class="mb-4">Report incidents with one tap</h2>
+            <p class="lead mb-6">Spot something suspicious? Report it instantly. Add a photo, pin the exact location on the map, and choose your urgency level. Your report goes live to neighbors in seconds.</p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="card" style="padding: var(--space-4);">
+                <i class="ph ph-camera text-accent mb-2" style="font-size: 2rem;"></i>
+                <h5 class="mb-1">Photo Evidence</h5>
+                <p class="font-size-caption text-muted">Attach photos or videos directly to your incident report for greater context.</p>
+              </div>
+              <div class="card" style="padding: var(--space-4);">
+                <i class="ph ph-user-slash text-accent mb-2" style="font-size: 2rem;"></i>
+                <h5 class="mb-1">Anonymous Reports</h5>
+                <p class="font-size-caption text-muted">Submit reports anonymously if you prefer privacy while keeping your community informed.</p>
+              </div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">See Reporting Demo</a>
+          </div>
+          <div>
+            <img src="assets/images/feature-incident-reporting.jpg" alt="Resident reporting a suspicious incident on SafeWatch mobile app"
+              class="rounded shadow-card" style="border-radius: var(--radius);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Receive Community Alerts -->
+    <section id="step3">
+      <div class="container">
+        <div class="grid grid-cols-2 gap-12 items-center solution-split">
+          <div>
+            <div class="flex items-center gap-2 mb-4 text-accent">
+              <i class="ph-fill ph-bell-ringing" style="font-size: 1.5rem;"></i>
+              <span class="font-weight-label">Step 3</span>
+            </div>
+            <h2 class="mb-4">Receive real-time community alerts</h2>
+            <p class="lead mb-6">Stay informed about everything happening in your neighborhood. SafeWatch delivers instant push notifications, SMS alerts, and email digests — exactly the way you want them.</p>
+
+            <ul class="flex-col gap-4 text-secondary mb-8 solution-bullets">
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Instant push notifications for urgent incidents</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Daily or weekly email safety digest</li>
+              <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Custom alert radius from 0.1 to 5 miles</li>
+            </ul>
+            <a href="dashboard.html" class="btn btn-primary">View Alert Dashboard</a>
+          </div>
+          <div>
+            <img src="assets/images/feature-alert-feed.jpg" alt="Community alert feed showing real-time neighborhood safety notifications"
+              class="rounded shadow-card" style="border-radius: var(--radius);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Connect with Group -->
+    <section id="step4" class="bg-tertiary">
+      <div class="container">
+        <div class="grid grid-cols-2 gap-12 items-center reverse-desktop solution-split">
+          <div>
+            <div class="flex items-center gap-2 mb-4 text-accent">
+              <i class="ph-fill ph-users-three" style="font-size: 1.5rem;"></i>
+              <span class="font-weight-label">Step 4</span>
+            </div>
+            <h2 class="mb-4">Connect & coordinate your community</h2>
+            <p class="lead mb-6">Build a stronger neighborhood watch team. Create patrol groups, schedule volunteers, assign block captains, and communicate securely — all within SafeWatch.</p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="card" style="padding: var(--space-4);">
+                <i class="ph ph-calendar-check text-accent mb-2" style="font-size: 2rem;"></i>
+                <h5 class="mb-1">Patrol Scheduling</h5>
+                <p class="font-size-caption text-muted">Organize watch patrol routes and schedule volunteer time slots easily.</p>
+              </div>
+              <div class="card" style="padding: var(--space-4);">
+                <i class="ph ph-chat-circle-dots text-accent mb-2" style="font-size: 2rem;"></i>
+                <h5 class="mb-1">Group Messaging</h5>
+                <p class="font-size-caption text-muted">Encrypted group chat for block captains, HOA boards, and watch teams.</p>
+              </div>
+            </div>
+            <a href="register.html" class="btn btn-primary">Join Your Watch Group</a>
+          </div>
+          <div>
+            <img src="assets/images/solution-services-team-meeting.jpg" alt="Neighborhood watch group coordinating community safety patrol"
+              class="rounded shadow-card" style="border-radius: var(--radius);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Enquiry -->
+    <section class="bg-tertiary">
+      <div class="container">
+        <div class="card enquiry-card animate-fade-up">
+          <div class="enquiry-intro">
+            <span class="eyebrow">Not sure where to start?</span>
+            <h3 class="mb-2">Find your neighborhood</h3>
+            <p class="text-secondary mb-0">Enter your email and we'll check if your neighborhood is already on SafeWatch. No commitment, no pressure.</p>
+          </div>
+          <form data-validate action="#" method="POST" novalidate class="enquiry-form">
+            <div class="form-group mb-0">
+              <label for="enquiry-email" class="sr-only">Email address</label>
+              <input type="email" id="enquiry-email" class="form-control" placeholder="Your email address" required>
+            </div>
+            <div class="form-group mb-0">
+              <label for="enquiry-type" class="sr-only">I am a...</label>
+              <select id="enquiry-type" class="form-control" required>
+                <option value="">I am a...</option>
+                <option>Resident</option>
+                <option>HOA Manager</option>
+                <option>Block Captain</option>
+                <option>Local Business Owner</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Find my neighborhood <i class="ph ph-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-6">
+            <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+          </a>
+          <p class="text-muted mb-6">Empowering neighborhoods with real-time safety alerts, incident reporting, and community-driven watch groups.</p>
+          <div class="flex gap-4">
+            <a href="#" class="icon-btn" aria-label="X"><i class="ph-fill ph-x-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-facebook-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>App Features</h4>
+          <div class="footer-links">
+            <a href="equipment.html#reporting" class="footer-link">Incident Reporting</a>
+            <a href="equipment.html#alerts" class="footer-link">Community Alerts</a>
+            <a href="equipment.html#groups" class="footer-link">Watch Groups</a>
+            <a href="equipment.html#tips" class="footer-link">Safety Tips</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="pricing.html" class="footer-link">Pricing</a>
+            <a href="solutions.html" class="footer-link">How It Works</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Trust & Safety</h4>
+          <div class="footer-links">
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-shield-check"></i> End-to-End Encrypted</div>
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-lock-key"></i> SOC 2 Compliant</div>
+            <a href="#" class="footer-link mt-2">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SafeWatch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

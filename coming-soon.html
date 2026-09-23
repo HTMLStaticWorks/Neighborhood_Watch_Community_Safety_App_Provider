@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayNexa - Coming Soon</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    .countdown-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+      min-width: 100px;
+      text-align: center;
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body class="flex flex-col items-center justify-center" style="min-height: 100vh; background: var(--bg-primary);">
+
+  <!-- Simple Header -->
+  <header class="header">
+    <div class="container nav-container" style="justify-content: center;">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+    </div>
+  </header>
+
+  <main style="width: 100%;">
+    <section class="text-center" style="padding-top: calc(var(--header-height) + 4rem);">
+      <div class="container animate-fade-up">
+        <div class="badge mb-4">Coming Soon</div>
+        <h1 class="mb-6">The new standard in <br><span class="text-accent">payment processing.</span></h1>
+        <p class="lead mb-8 mx-auto" style="max-width: 600px;">We're launching our completely redesigned merchant platform next month. Get notified the minute we go live.</p>
+        
+        <!-- Countdown -->
+        <div class="flex justify-center gap-4 mb-12 flex-wrap">
+          <div class="countdown-item shadow-sm">
+            <h2 id="days" class="text-primary mb-0">14</h2>
+            <span class="text-muted font-size-caption font-weight-label">DAYS</span>
+          </div>
+          <div class="countdown-item shadow-sm">
+            <h2 id="hours" class="text-primary mb-0">08</h2>
+            <span class="text-muted font-size-caption font-weight-label">HOURS</span>
+          </div>
+          <div class="countdown-item shadow-sm">
+            <h2 id="minutes" class="text-primary mb-0">45</h2>
+            <span class="text-muted font-size-caption font-weight-label">MINUTES</span>
+          </div>
+          <div class="countdown-item shadow-sm">
+            <h2 id="seconds" class="text-primary mb-0">30</h2>
+            <span class="text-muted font-size-caption font-weight-label">SECONDS</span>
+          </div>
+        </div>
+
+        <!-- Newsletter Capture -->
+        <form data-validate action="#" class="flex items-center justify-center gap-2 max-w-md mx-auto" style="max-width: 400px;">
+          <!-- Mailchimp API Placeholder -->
+          <input type="email" class="form-control mb-0" placeholder="Business Email Address" required style="flex: 1;">
+          <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Simple mock countdown logic
+    setInterval(() => {
+      const sEl = document.getElementById('seconds');
+      let s = parseInt(sEl.innerText);
+      if (s > 0) {
+        sEl.innerText = (s - 1).toString().padStart(2, '0');
+      } else {
+        sEl.innerText = '59';
+        // Mock decrement minutes etc if needed
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+

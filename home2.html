@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWatch - Community Safety App (Home 2)</title>
+  <meta name="description"
+    content="SafeWatch — the community-first neighborhood watch app with real-time alerts, incident mapping, and group coordination tools.">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+  <!-- Drawer Overlay & Menu -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <button class="icon-btn drawer-close" aria-label="Close menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html" class="drawer-link">Home</a>
+      <a href="home2.html" class="drawer-link active text-accent" aria-current="page">Home 2</a>
+      <a href="solutions.html" class="drawer-link">How</a>
+      <a href="pricing.html" class="drawer-link">Pricing</a>
+      <a href="equipment.html" class="drawer-link">Features</a>
+      <a href="contact.html" class="drawer-link">Contact</a>
+      <a href="dashboard.html" class="drawer-link">Dashboard</a>
+    </nav>
+    <div class="drawer-actions flex-col gap-4">
+      <div class="flex items-center gap-2" style="width: 100%;">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Login</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link active">Home 2</a>
+        <a href="solutions.html" class="nav-link">How</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="equipment.html" class="nav-link">Features</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+          <i class="ph-fill ph-moon theme-icon-dark"></i>
+          <i class="ph-fill ph-sun theme-icon-light"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+        <a href="login.html" class="btn btn-primary">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero 2: Split Layout -->
+    <section class="hero hero-padding pb-16 bg-gradient-mesh">
+      <div class="container">
+        <div class="grid gap-12 items-center hero2-grid">
+          <div class="animate-fade-up hero2-copy">
+            <div class="badge mb-6"><i class="ph-fill ph-sparkle"></i> New: AI-powered threat detection</div>
+            <h1 class="mb-6">Safer streets.<br><span class="gradient-text">Stronger bonds.</span></h1>
+            <p class="lead mb-8">Connect your entire neighborhood in minutes. Report incidents, share alerts, and
+              coordinate watch patrols — all in one trusted community platform.</p>
+            <div class="flex gap-4 flex-wrap mb-8 hero2-actions">
+              <a href="register.html" class="btn btn-primary">Get started free <i class="ph ph-arrow-right"></i></a>
+              <a href="pricing.html" class="btn btn-outline">View plans</a>
+            </div>
+            <div class="flex gap-6 flex-wrap hero2-trust"
+              style="color: var(--text-muted); font-size: var(--size-caption);">
+              <span class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Free for residents</span>
+              <span class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> No ads or data selling</span>
+              <span class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-accent"></i> Live in under 5 minutes</span>
+            </div>
+          </div>
+          <div class="hero-media animate-fade-up delay-200">
+            <img src="assets/images/hero-bg-neighborhood-safety.jpg" alt="Peaceful neighborhood community with residents connected through SafeWatch">
+            <div class="floating-stat">
+              <div class="feature-icon" style="width: 44px; height: 44px; font-size: 1.25rem;"><i
+                  class="ph ph-shield-check"></i></div>
+              <div>
+                <div class="rate-figure" style="font-size: 1.75rem;">62%</div>
+                <p class="font-size-caption text-muted">Avg. crime reduction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Cloud -->
+    <section class="bg-tertiary" style="padding: var(--space-8) 0;">
+      <div class="container text-center">
+        <p class="eyebrow" style="color: var(--text-muted); margin-bottom: var(--space-6);">Trusted by 5,200+ neighborhoods, HOAs & police departments</p>
+        <div class="logo-cloud">
+          <span>Oakdale HOA</span>
+          <span>Riverside Watch</span>
+          <span>Metro PD</span>
+          <span>Maplewood Estates</span>
+          <span>SafeCity Partners</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Zigzag Layout -->
+    <section>
+      <div class="container">
+        <!-- Feature Block 1 -->
+        <div class="split-row mb-16">
+          <div class="split-media animate-fade-up">
+            <img src="assets/images/feature-alert-feed.jpg"
+              alt="Community alert feed on a mobile phone showing real-time neighborhood incidents">
+          </div>
+          <div class="animate-fade-up delay-100">
+            <span class="eyebrow">Alerts</span>
+            <h2 class="mb-4">Real-time community alert feed</h2>
+            <p class="lead mb-6">Stop wondering if your neighborhood is safe. The SafeWatch alert feed delivers second-by-second visibility into everything happening on your block.</p>
+            <ul class="check-list mb-6">
+              <li><i class="ph-fill ph-check-circle"></i> Instant push notifications for nearby incidents</li>
+              <li><i class="ph-fill ph-check-circle"></i> GPS-pinned incident map with filtering</li>
+              <li><i class="ph-fill ph-check-circle"></i> Verified and anonymous report options</li>
+            </ul>
+            <a href="dashboard.html" class="btn-link">Explore the resident dashboard <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Feature Block 2 -->
+        <div class="split-row">
+          <div class="split-media animate-fade-up delay-200" style="order: 2;">
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <div class="code-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="code-tabs" role="tablist" aria-label="Alert type">
+                  <button class="code-tab active" data-lang="node" role="tab" aria-selected="true">Incident Report</button>
+                  <button class="code-tab" data-lang="python" role="tab" aria-selected="false">Alert Broadcast</button>
+                </div>
+                <button class="copy-btn" id="copy-api-code" aria-label="Copy code"><i class="ph ph-copy"></i>
+                  Copy</button>
+              </div>
+              <div class="code-content">
+                <pre id="api-code-display">
+// SafeWatch Incident Report
+const report = {
+  type: "suspicious_activity",
+  location: "123 Maple Street",
+  description: "Unknown vehicle parked
+    for 3+ hours, no plates visible.",
+  media: ["photo_01.jpg"],
+  anonymous: false,
+  urgency: "medium"
+};
+
+await safewatch.report.submit(report);
+// Alert sent to 247 neighbors ✓
+</pre>
+              </div>
+            </div>
+          </div>
+          <div class="animate-fade-up" style="order: 1;">
+            <span class="eyebrow">Reporting</span>
+            <h2 class="mb-4">Report incidents in seconds</h2>
+            <p class="lead mb-6">Submit a detailed incident report with photos, location, and description from your phone in under 30 seconds. Alerts go out to your neighbors immediately.</p>
+            <ul class="check-list mb-6">
+              <li><i class="ph-fill ph-check-circle"></i> One-tap emergency alert broadcast</li>
+              <li><i class="ph-fill ph-check-circle"></i> Photo and video attachment support</li>
+              <li><i class="ph-fill ph-check-circle"></i> Anonymous reporting option available</li>
+            </ul>
+            <a href="solutions.html" class="btn-link">See how it works <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Teaser -->
+    <section>
+      <div class="container">
+        <div class="cta-panel animate-fade-up" style="padding-bottom: clamp(3rem, 6vw, 5rem);">
+          <span class="eyebrow" style="color: #86efac;">Plans</span>
+          <h2 class="mb-4">Simple, community-friendly pricing</h2>
+          <p class="lead mb-12 mx-auto" style="max-width: 38rem;">Fair pricing built for neighborhoods of all sizes. Free
+            for residents, affordable for HOAs.</p>
+
+          <div class="card mx-auto" style="max-width: 880px; padding: 0; text-align: left; overflow: hidden;">
+            <div class="rate-grid">
+              <div class="rate-cell">
+                <h4 class="mb-4">Resident</h4>
+                <div class="rate-figure text-accent mb-2">Free</div>
+                <p class="rate-sub">forever for individual residents</p>
+              </div>
+              <div class="rate-cell">
+                <h4 class="mb-4">Community</h4>
+                <div class="rate-figure text-accent mb-2">$9.99</div>
+                <p class="rate-sub">per month for small neighborhoods</p>
+              </div>
+              <div class="rate-cell">
+                <h4 class="mb-4">HOA Pro</h4>
+                <div class="rate-figure text-accent mb-2">$29.99</div>
+                <p class="rate-sub">per month for full HOA management</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Features Showcase -->
+    <section class="bg-tertiary">
+      <div class="container">
+        <div class="section-header animate-fade-up">
+          <span class="eyebrow">App Features</span>
+          <h2>Built for the way communities work</h2>
+          <p class="lead">Powerful features that give your neighborhood the tools it needs to stay safe and connected.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-6">
+          <a href="equipment.html" class="card solution-card animate-fade-up">
+            <div class="card-media"><img src="assets/images/feature-incident-reporting.jpg"
+                alt="Resident reporting incident on mobile SafeWatch app" loading="lazy"></div>
+            <div class="badge mb-4">Core Feature</div>
+            <h4 class="mb-2">Incident Map</h4>
+            <p class="text-secondary mb-6">View all reported incidents on an interactive map of your neighborhood with real-time updates and incident clustering.</p>
+            <span class="btn-link" style="margin-top: auto;">Explore feature <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="equipment.html" class="card solution-card animate-fade-up delay-100">
+            <div class="card-media"><img src="assets/images/feature-alert-feed.jpg"
+                alt="Community alert notifications on mobile phone" loading="lazy"></div>
+            <div class="badge mb-4">Core Feature</div>
+            <h4 class="mb-2">Group Chat</h4>
+            <p class="text-secondary mb-6">Secure group messaging for neighborhood watch teams, block captains, and HOA boards with end-to-end encryption.</p>
+            <span class="btn-link" style="margin-top: auto;">Explore feature <i class="ph ph-arrow-right"></i></span>
+          </a>
+          <a href="equipment.html" class="card solution-card animate-fade-up delay-200">
+            <div class="card-media"><img src="assets/images/feature-analytics-dashboard-screen.jpg"
+                alt="Patrol scheduling and safety analytics dashboard" loading="lazy"></div>
+            <div class="badge mb-4">Pro Feature</div>
+            <h4 class="mb-2">Patrol Scheduling</h4>
+            <p class="text-secondary mb-6">Organize and schedule neighborhood watch patrols, assign volunteers to routes, and log patrol activity automatically.</p>
+            <span class="btn-link" style="margin-top: auto;">Explore feature <i class="ph ph-arrow-right"></i></span>
+          </a>
+        </div>
+        <div class="text-center mt-12 animate-fade-up">
+          <a href="equipment.html" class="btn btn-outline">Browse all features <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials: Auto Scroll -->
+    <section>
+      <div class="container mb-8">
+        <div class="section-header animate-fade-up">
+          <span class="eyebrow">Testimonials</span>
+          <h2>Loved by neighborhoods everywhere</h2>
+          <p class="lead">See why thousands of residents and HOAs are choosing SafeWatch.</p>
+        </div>
+      </div>
+
+      <div class="marquee-wrapper">
+        <div class="marquee-container">
+          <!-- Group 1 -->
+          <div class="marquee-group">
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"SafeWatch didn't just connect our neighborhood — it transformed it. We reduced car break-ins by 71% in the first three months. The patrol scheduling feature alone is worth every penny."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-woman-ops-manager.jpg" alt="Lisa Hartman">
+                <div>
+                  <h5 class="mb-1">Lisa Hartman</h5>
+                  <p class="text-muted font-size-caption">HOA Manager, Pinecrest Community</p>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"Since joining SafeWatch, our street feels so much safer. We caught a car break-in suspect because a neighbor posted an alert within minutes. Absolutely essential app."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-cafe-owner-marquee.jpg" alt="Sarah Mitchell"
+                  loading="lazy">
+                <div>
+                  <h5 class="mb-1">Sarah Mitchell</h5>
+                  <p class="text-muted font-size-caption">HOA President, Maplewood Estates</p>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"The anonymous reporting feature is brilliant. Residents who were previously afraid to speak up now submit reports freely. Our neighborhood is more informed than ever."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-cto-marquee.jpg" alt="James Carter"
+                  loading="lazy">
+                <div>
+                  <h5 class="mb-1">James Carter</h5>
+                  <p class="text-muted font-size-caption">Block Captain, Riverside District</p>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"As a single parent, SafeWatch gives me real peace of mind. I know within seconds if anything suspicious is happening near the school or my home. Absolutely essential."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-gm-marquee.jpg" alt="Maria Thompson"
+                  loading="lazy">
+                <div>
+                  <h5 class="mb-1">Maria Thompson</h5>
+                  <p class="text-muted font-size-caption">Resident, Oakdale Heights</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 2 (Duplicate for infinite scroll) -->
+          <div class="marquee-group" aria-hidden="true">
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"SafeWatch didn't just connect our neighborhood — it transformed it. We reduced car break-ins by 71% in the first three months. The patrol scheduling feature alone is worth every penny."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-woman-ops-manager.jpg" alt="Lisa Hartman">
+                <div>
+                  <h5 class="mb-1">Lisa Hartman</h5>
+                  <p class="text-muted font-size-caption">HOA Manager, Pinecrest Community</p>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"Since joining SafeWatch, our street feels so much safer. We caught a car break-in suspect because a neighbor posted an alert within minutes. Absolutely essential app."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-cafe-owner-marquee.jpg" alt="Sarah Mitchell"
+                  loading="lazy">
+                <div>
+                  <h5 class="mb-1">Sarah Mitchell</h5>
+                  <p class="text-muted font-size-caption">HOA President, Maplewood Estates</p>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"The anonymous reporting feature is brilliant. Residents who were previously afraid to speak up now submit reports freely. Our neighborhood is more informed than ever."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-cto-marquee.jpg" alt="James Carter"
+                  loading="lazy">
+                <div>
+                  <h5 class="mb-1">James Carter</h5>
+                  <p class="text-muted font-size-caption">Block Captain, Riverside District</p>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card marquee-item">
+              <div class="flex text-accent mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                  class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-secondary mb-6">"As a single parent, SafeWatch gives me real peace of mind. I know within seconds if anything suspicious is happening near the school or my home. Absolutely essential."</p>
+              <div class="flex items-center gap-4" style="margin-top: auto;">
+                <img class="avatar" src="assets/images/avatar-testimonial-gm-marquee.jpg" alt="Maria Thompson"
+                  loading="lazy">
+                <div>
+                  <h5 class="mb-1">Maria Thompson</h5>
+                  <p class="text-muted font-size-caption">Resident, Oakdale Heights</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel animate-fade-up">
+          <div class="badge mb-6">Free to join</div>
+          <h2 class="mb-4">Your neighborhood deserves SafeWatch</h2>
+          <p class="lead mb-8 mx-auto" style="max-width: 40rem;">Sign up in under 5 minutes. Your neighbors are already waiting.
+            Start protecting your community today — completely free for residents.</p>
+          <div class="flex justify-center gap-4 flex-wrap">
+            <a href="register.html" class="btn btn-primary">Join your neighborhood <i class="ph ph-arrow-right"></i></a>
+            <a href="pricing.html" class="btn btn-outline">View HOA plans</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-6">
+            <img src="assets/images/logo.svg" alt="SafeWatch" class="logo-img">
+          </a>
+          <p class="text-muted mb-6">Empowering neighborhoods with real-time safety alerts, incident reporting, and community-driven watch groups.</p>
+          <div class="flex gap-4">
+            <a href="#" class="icon-btn" aria-label="X"><i class="ph-fill ph-x-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-linkedin-logo"></i></a>
+            <a href="#" class="icon-btn"><i class="ph-fill ph-facebook-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>App Features</h4>
+          <div class="footer-links">
+            <a href="equipment.html#reporting" class="footer-link">Incident Reporting</a>
+            <a href="equipment.html#alerts" class="footer-link">Community Alerts</a>
+            <a href="equipment.html#groups" class="footer-link">Watch Groups</a>
+            <a href="equipment.html#tips" class="footer-link">Safety Tips</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="pricing.html" class="footer-link">Pricing</a>
+            <a href="solutions.html" class="footer-link">How It Works</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Trust & Safety</h4>
+          <div class="footer-links">
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-shield-check"></i> End-to-End Encrypted
+            </div>
+            <div class="flex items-center gap-2 text-muted mb-2"><i class="ph-fill ph-lock-key"></i> SOC 2 Compliant
+            </div>
+            <a href="#" class="footer-link mt-2">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SafeWatch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
