@@ -19,10 +19,27 @@
       background: var(--bg-tertiary);
     }
 
+    @media (max-width: 576px) {
+      body { overflow: auto; }
+    }
+
     .dashboard-layout {
       display: flex;
       height: 100vh;
-      width: 100vw;
+      height: 100dvh;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 576px) {
+      .dashboard-layout {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+      }
     }
 
     /* Sidebar */
@@ -86,9 +103,14 @@
     /* Main Content */
     .main-wrapper {
       flex: 1;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      box-sizing: border-box;
     }
 
     /* Topbar */
@@ -101,6 +123,7 @@
       align-items: center;
       padding: 0 var(--space-8);
       z-index: 40;
+      flex-shrink: 0;
     }
 
     .topbar-left {
@@ -126,10 +149,17 @@
     /* Content Area */
     .content-area {
       flex: 1;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
       overflow-y: auto;
-      padding: var(--space-12) var(--space-16);
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: var(--space-8) var(--space-8);
       background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
       background-size: 60px 60px;
+      min-height: 0;
+      box-sizing: border-box;
     }
 
     [data-theme="dark"] .content-area {
@@ -137,14 +167,19 @@
     }
 
     .dashboard-page-title {
-      font-size: 3rem;
+      font-size: 2.25rem;
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       margin-top: 0;
+      line-height: 1.2;
     }
 
     .dashboard-section {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
       display: none;
       animation: fadeInUp 0.4s ease;
     }
@@ -195,9 +230,20 @@
       color: var(--error-color);
     }
 
+    .card {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
     .table-container {
       width: 100%;
-      overflow-x: scroll;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      box-sizing: border-box;
     }
 
     .data-table {
@@ -421,121 +467,454 @@
       color: var(--accent-color);
     }
 
+    /* ---- Notification toggle switches ---- */
+    .notif-toggle { cursor: pointer; user-select: none; }
+    .notif-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .notif-toggle input:checked ~ span:last-child { transform: translateX(22px) !important; }
+    .notif-slider-off { transition: background 0.3s; }
+    .notif-toggle input:checked + .notif-slider-off { background: var(--accent-color) !important; }
+
+    /* ---- Notifications component grids ---- */
+    .notif-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      width: 100%;
+    }
+    .notif-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: start;
+      width: 100%;
+    }
+    .quiet-hours-time-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      width: 100%;
+    }
+    .notif-save-bar {
+      margin-top: var(--space-8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    /* Hide back-to-top button on dashboard */
+    .back-to-top {
+      display: none !important;
+    }
+
+    /* ---- Safety Analytics Report Form ---- */
+    .report-form {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-4);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      align-items: end;
+    }
+    .report-form .form-group {
+      margin-bottom: 0;
+      min-width: 0;
+      max-width: 100%;
+    }
+    .report-form .form-control {
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      height: 2.75rem;
+    }
+
+    /* ---- Resident Profile Styles ---- */
+    .profile-hero-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6) var(--space-8);
+      margin-bottom: var(--space-6);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .profile-hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gradient-accent);
+    }
+    .profile-hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .profile-avatar-wrap {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+      border: 3px solid var(--accent-color);
+      background: var(--bg-tertiary);
+    }
+    .topbar-profile-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      padding: 0;
+      border: 2px solid var(--accent-color);
+      background: none;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      flex-shrink: 0;
+    }
+    .topbar-profile-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+    }
+    .topbar-profile-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-avatar-btn {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+    .profile-avatar-btn:hover {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+    }
+    .profile-meta-pills {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-3);
+    }
+    .profile-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 0.25rem 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: var(--size-caption);
+      color: var(--text-secondary);
+    }
+    .profile-main-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-6);
+      align-items: start;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .profile-contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-3);
+      transition: var(--transition-fast);
+      box-sizing: border-box;
+    }
+    .profile-contact-item:hover {
+      border-color: rgba(var(--accent-rgb), 0.35);
+    }
+    .profile-contact-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      object-fit: cover;
+      overflow: hidden;
+    }
+    .profile-actions-bar {
+      margin-top: var(--space-8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    /* ========================================================
+       RESPONSIVE BREAKPOINTS
+       ======================================================== */
+
+    /* Tablet Landscape & Below (<= 1024px) */
     @media (max-width: 1024px) {
       .sidebar {
-        position: absolute;
+        position: fixed;
         left: -280px;
         height: 100%;
+        top: 0;
         box-shadow: var(--shadow-lg);
+        z-index: 200;
+        width: 280px;
       }
-
       .sidebar.open {
         left: 0;
         transform: translateX(0);
       }
-
       .mobile-menu-btn {
         display: flex;
       }
-
       .mobile-logo {
         display: flex !important;
       }
-
+      .main-wrapper {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      .content-area {
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: var(--space-6) var(--space-6);
+        min-height: 0;
+      }
+      .notif-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .notif-main-grid {
+        gap: var(--space-5);
+      }
+      .profile-main-grid {
+        grid-template-columns: 1fr;
+      }
       [dir="rtl"] .sidebar {
         left: auto;
         right: -280px;
       }
-
       [dir="rtl"] .sidebar.open {
         right: 0;
       }
     }
 
-    @media (max-width: 576px) {
-      .content-area {
-        padding: var(--space-6) var(--space-6);
-      }
-
+    /* Tablet Portrait (<= 768px) */
+    @media (max-width: 768px) {
       .topbar {
-        padding: 0 var(--space-2);
+        padding: 0 var(--space-4);
       }
-
-      .topbar-left {
-        gap: var(--space-1);
+      .content-area {
+        padding: var(--space-6) var(--space-4);
+        overflow-y: auto;
+        overflow-x: hidden;
       }
-
-      .topbar-right {
-        gap: var(--space-1);
-      }
-
       .dashboard-page-title {
-        font-size: 2.25rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.85rem;
+        margin-bottom: 1.25rem;
       }
+      .report-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: var(--space-3) !important;
+      }
+      .notif-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-5);
+      }
+      .notif-kpi-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-3) !important;
+      }
+      .profile-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-5);
+      }
+      .grid-cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: var(--space-4) !important;
+      }
+      .grid-cols-3 {
+        grid-template-columns: 1fr !important;
+      }
+      .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+      }
+    }
 
-      /* Settings Mobile Layout Fixes */
-      .settings-item {
+    /* Mobile (<= 576px / 368px) */
+    @media (max-width: 576px) {
+      body {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .dashboard-layout {
         flex-direction: column;
-        align-items: center !important;
-        text-align: center !important;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        width: 100%;
+        max-width: 100%;
+      }
+      .main-wrapper {
+        flex: 1;
+        overflow: visible;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+      }
+      .content-area {
+        flex: 1;
+        overflow-y: visible;
+        overflow-x: hidden;
+        padding: var(--space-4) var(--space-3);
+        min-height: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 0 var(--space-3);
+        flex-shrink: 0;
+      }
+      .topbar-left { gap: var(--space-1); }
+      .topbar-right { gap: var(--space-1); }
+      .dashboard-page-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-3) !important;
+      }
+      .grid-cols-3 { grid-template-columns: 1fr !important; }
+      .grid-cols-2 { grid-template-columns: 1fr !important; }
+      .kpi-card { padding: var(--space-4) !important; }
+      .kpi-value { font-size: 1.35rem !important; }
+
+      /* Report Form: 1-col on mobile */
+      .report-form {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
+      }
+      .report-form .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .report-generate-cell {
+        margin-top: var(--space-1);
       }
 
-      .settings-item .feature-icon {
-        margin: 0 auto var(--space-4) auto !important;
+      /* Notifications on Mobile */
+      .notif-kpi-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: var(--space-2) !important;
       }
-
-      .settings-item>div {
-        text-align: center !important;
+      .notif-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+      }
+      .quiet-hours-time-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: var(--space-2) !important;
+      }
+      .notif-save-bar {
+        flex-direction: column-reverse;
+      }
+      .notif-save-bar .btn {
+        width: 100%;
         justify-content: center;
       }
 
-      .settings-item .status-badge {
-        margin-top: var(--space-4);
-      }
-
-      /* Profile Mobile Layout Fixes */
-      .profile-actions {
-        flex-direction: column;
-        gap: var(--space-4);
-        width: 100%;
-      }
-
-      .profile-actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      /* Convert table to stacked blocks on mobile */
-      #profile .data-table,
-      #profile .data-table tbody,
-      #profile .data-table tr,
-      #profile .data-table td {
-        display: block;
-        width: 100%;
-        text-align: center;
-      }
-
-      #profile .data-table tr {
-        margin-bottom: var(--space-4);
-        padding-bottom: var(--space-4);
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      #profile .data-table tr:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      #profile .data-table td {
-        padding: 0.25rem 0;
-        border: none;
-        word-break: break-word;
-      }
-
-      #profile .card {
+      /* Profile on Mobile */
+      .profile-hero-card {
         padding: var(--space-4) !important;
+      }
+      .profile-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .profile-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4);
+      }
+      .profile-actions-bar {
+        flex-direction: column-reverse;
+      }
+      .profile-actions-bar .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .profile-contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+      }
+      .profile-contact-item > div:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Card global mobile padding */
+      .card {
+        padding: var(--space-4) !important;
+      }
+    }
+
+    /* Small Mobile (<= 380px) */
+    @media (max-width: 380px) {
+      .quiet-hours-time-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .notif-kpi-grid {
+        grid-template-columns: 1fr !important;
       }
     }
   </style>
@@ -545,6 +924,9 @@
 <body>
 
   <div class="dashboard-layout">
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:199;backdrop-filter:blur(4px);"></div>
 
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
@@ -589,9 +971,8 @@
           <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
             <i class="ph ph-arrows-left-right"></i>
           </button>
-          <button class="icon-btn"
-            style="background: rgba(6, 182, 212, 0.1); color: var(--accent-color); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 50%;">
-            <i class="ph ph-user"></i>
+          <button class="topbar-profile-btn" id="topbarProfileBtn" aria-label="View Profile" title="Sarah Mitchell - My Profile">
+            <img src="assets/images/avatar-testimonial-woman-cafe-owner.jpg" alt="Sarah Mitchell">
           </button>
         </div>
       </header>
@@ -603,6 +984,28 @@
 
         <!-- ================= OVERVIEW ================= -->
         <div id="overview" class="dashboard-section active">
+          <!-- Welcome Banner -->
+          <div class="card mb-8" style="background: var(--gradient-accent); border: none; padding: var(--space-6) var(--space-8); flex-direction: row; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap;">
+            <div>
+              <p style="color: rgba(255,255,255,0.8); font-size: var(--size-caption); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem;">Welcome back</p>
+              <h2 style="color: #fff; margin: 0; font-size: 1.75rem;">Good evening, Sarah! <span style="opacity:0.85;">&#128075;</span></h2>
+              <p style="color: rgba(255,255,255,0.78); margin: 0.5rem 0 0; font-size: var(--size-label);">Maplewood Estates &middot; HOA President &middot; Your neighborhood is safe today.</p>
+            </div>
+            <div class="flex gap-3" style="flex-wrap: wrap;">
+              <div style="background:rgba(255,255,255,0.18);border-radius:var(--radius);padding:0.75rem 1.25rem;text-align:center;min-width:90px;">
+                <div style="color:#fff;font-size:1.5rem;font-weight:700;line-height:1;">14</div>
+                <div style="color:rgba(255,255,255,0.8);font-size:0.75rem;margin-top:0.25rem;">Reports</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.18);border-radius:var(--radius);padding:0.75rem 1.25rem;text-align:center;min-width:90px;">
+                <div style="color:#fff;font-size:1.5rem;font-weight:700;line-height:1;">142</div>
+                <div style="color:rgba(255,255,255,0.8);font-size:0.75rem;margin-top:0.25rem;">Members</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.18);border-radius:var(--radius);padding:0.75rem 1.25rem;text-align:center;min-width:90px;">
+                <div style="color:#fff;font-size:1.5rem;font-weight:700;line-height:1;">98%</div>
+                <div style="color:rgba(255,255,255,0.8);font-size:0.75rem;margin-top:0.25rem;">Safety Score</div>
+              </div>
+            </div>
+          </div>
           <!-- KPI Cards -->
           <div class="grid grid-cols-4 gap-6 mb-8">
             <div class="card kpi-card">
@@ -647,17 +1050,20 @@
         <div id="settlements" class="dashboard-section">
 
           <div class="grid grid-cols-3 gap-6 mb-8">
-            <div class="card kpi-card surface-ink text-white"
-              style="align-items: flex-start; justify-content: center;">
-              <span class="kpi-title" style="color: rgba(255,255,255,0.7);">Active / Open Incidents</span>
-              <span class="kpi-value" style="color: #fff;">3</span>
+            <div class="card kpi-card">
+              <span class="kpi-title">Active / Open Incidents</span>
+              <span class="kpi-value text-error">3</span>
+              <span class="kpi-trend text-error"><i class="ph-bold ph-warning-circle"></i> Requires attention</span>
             </div>
             <div class="card kpi-card">
               <span class="kpi-title">Incidents This Month</span>
               <span class="kpi-value">14</span>
+              <span class="kpi-trend trend-up"><i class="ph-bold ph-trend-up"></i> +2 this week</span>
             </div>
             <div class="card kpi-card">
-              <span class="kpi-title">Resolved This Month</span><span class="kpi-value text-accent">11</span>
+              <span class="kpi-title">Resolved This Month</span>
+              <span class="kpi-value text-accent">11</span>
+              <span class="kpi-trend text-accent"><i class="ph-bold ph-check-circle"></i> 78% resolution rate</span>
             </div>
           </div>
 
@@ -797,18 +1203,28 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td data-label="Member">Sarah Mitchell</td>
+                    <td data-label="Member">
+                      <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <img src="assets/images/avatar-testimonial-woman-cafe-owner.jpg" alt="Sarah Mitchell" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                        <span>Sarah Mitchell</span>
+                      </div>
+                    </td>
                     <td data-label="Date Joined">Jan 15, 2026</td>
                     <td data-label="Role">HOA President</td>
                     <td data-label="Reports Filed">12</td>
                     <td data-label="Status"><span class="status-badge status-success">Active</span></td>
                     <td data-label="Action">
-                      <button class="btn-link" style="background: none; border: none; padding: 0;"
-                        onclick="alert('Viewing member profile...')"><i class="ph ph-eye"></i> View</button>
+                      <button class="btn-link" style="background: none; border: none; padding: 0; cursor: pointer;"
+                        onclick="document.querySelector('.sidebar-link[data-target=\'profile\']').click()"><i class="ph ph-eye"></i> View</button>
                     </td>
                   </tr>
                   <tr>
-                    <td data-label="Member">James Carter</td>
+                    <td data-label="Member">
+                      <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <img src="assets/images/avatar-testimonial-man-tech-cto.jpg" alt="James Carter" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                        <span>James Carter</span>
+                      </div>
+                    </td>
                     <td data-label="Date Joined">Feb 03, 2026</td>
                     <td data-label="Role">Block Captain</td>
                     <td data-label="Reports Filed">8</td>
@@ -852,9 +1268,9 @@
 
         <!-- ================= SAFETY ANALYTICS ================= -->
         <div id="reports" class="dashboard-section">
-          <div class="card text-left mb-8" style="padding: var(--space-6); align-items: flex-start;">
+          <div class="card text-left mb-8" style="padding: var(--space-6);">
             <h4 class="mb-4">Generate Safety Report</h4>
-            <div class="grid grid-cols-4 gap-4 w-full report-form">
+            <div class="report-form">
               <div class="form-group mb-0">
                 <label class="form-label">Report Type</label>
                 <select class="form-control">
@@ -880,7 +1296,7 @@
 
           <div class="card" style="padding: 0; align-items: stretch;">
             <div
-              style="padding: var(--space-6); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              style="padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3);">
               <h4 class="mb-0 text-left">Incident Summary (Sep 1 – Sep 30)</h4>
               <button class="btn btn-outline" style="padding: 0.25rem 0.75rem; font-size: 0.85rem;"><i
                   class="ph ph-download-simple"></i> Export CSV</button>
@@ -926,153 +1342,518 @@
               </table>
             </div>
           </div>
-        </div></div>
+        </div>
 
         <!-- ================= NOTIFICATION PREFERENCES ================= -->
         <div id="settings" class="dashboard-section">
-          <div class="grid gap-8 settings-grid">
-            <!-- Alert Preferences -->
-            <div class="card" style="align-items: center; text-align: center; padding: var(--space-8);">
-              <h4 class="mb-6" style="text-align: center; width: 100%;">Alert Preferences</h4>
 
-              <div class="flex items-center justify-between mb-4 pb-4 w-full settings-item settings-row"
-                style="border-bottom: 1px solid var(--border-color);">
-                <div class="flex items-center gap-4 settings-item">
-                  <div class="feature-icon"
-                    style="width: 48px; height: 48px; font-size: 1.5rem; margin: 0; flex-shrink: 0;"><i
-                      class="ph ph-bell-ringing"></i></div>
-                  <div style="text-align: left;">
-                    <h5 class="mb-1" style="font-size: 1.1rem;">Push Notifications</h5>
-                    <p class="font-size-caption text-muted mb-0">For all nearby incidents</p>
-                  </div>
+          <!-- Notification summary strip -->
+          <div class="notif-kpi-grid">
+            <div class="card kpi-card" style="background:var(--accent-soft);border-color:rgba(var(--accent-rgb),0.2);">
+              <span class="kpi-title">Active Channels</span>
+              <span class="kpi-value text-accent">3</span>
+              <span class="kpi-trend text-accent"><i class="ph-fill ph-check-circle"></i> Configured</span>
+            </div>
+            <div class="card kpi-card">
+              <span class="kpi-title">Alert Radius</span>
+              <span class="kpi-value">0.5mi</span>
+              <span class="kpi-trend text-muted"><i class="ph ph-map-pin"></i> Your zone</span>
+            </div>
+            <div class="card kpi-card">
+              <span class="kpi-title">Quiet Hours</span>
+              <span class="kpi-value" style="font-size:1.25rem;">10PM–7AM</span>
+              <span class="kpi-trend text-muted"><i class="ph ph-moon"></i> Active nightly</span>
+            </div>
+            <div class="card kpi-card">
+              <span class="kpi-title">Alerts Today</span>
+              <span class="kpi-value">7</span>
+              <span class="kpi-trend trend-up"><i class="ph-bold ph-trend-up"></i> +2 vs yesterday</span>
+            </div>
+          </div>
+
+          <div class="notif-main-grid">
+
+            <!-- LEFT: Delivery Channels -->
+            <div class="card" style="padding:var(--space-6);align-items:stretch;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6);">
+                <div>
+                  <h4 style="margin:0 0 0.2rem;">Delivery Channels</h4>
+                  <p class="font-size-caption text-muted" style="margin:0;">Choose how you receive alerts</p>
                 </div>
-                <span class="status-badge status-success">Enabled</span>
+                <div class="feature-icon" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;"><i class="ph ph-broadcast"></i></div>
               </div>
 
-              <div class="flex items-center justify-between mb-6 pb-4 w-full settings-item settings-row"
-                style="border-bottom: 1px solid var(--border-color);">
-                <div class="flex items-center gap-4 settings-item">
-                  <div class="feature-icon"
-                    style="width: 48px; height: 48px; font-size: 1.5rem; margin: 0; flex-shrink: 0;"><i
-                      class="ph ph-envelope"></i></div>
-                  <div style="text-align: left;">
-                    <h5 class="mb-1" style="font-size: 1.1rem;">Email Digest</h5>
-                    <p class="font-size-caption text-muted mb-0">Daily summary at 8AM</p>
+              <!-- Toggle Row -->
+              <div style="display:flex;flex-direction:column;gap:0;">
+                <!-- Push -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <div style="width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(34,197,94,0.12);display:flex;align-items:center;justify-content:center;color:#22c55e;font-size:1.1rem;flex-shrink:0;"><i class="ph-fill ph-bell-ringing"></i></div>
+                    <div>
+                      <div style="font-weight:600;font-size:0.9375rem;color:var(--text-primary);">Push Notifications</div>
+                      <div class="font-size-caption text-muted">Instant alerts on your device</div>
+                    </div>
                   </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;content:'';height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
                 </div>
-                <span class="status-badge status-error">Disabled</span>
+                <!-- Email -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <div style="width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(59,130,246,0.12);display:flex;align-items:center;justify-content:center;color:#3b82f6;font-size:1.1rem;flex-shrink:0;"><i class="ph-fill ph-envelope"></i></div>
+                    <div>
+                      <div style="font-weight:600;font-size:0.9375rem;color:var(--text-primary);">Email Digest</div>
+                      <div class="font-size-caption text-muted">Daily summary at 8:00 AM</div>
+                    </div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider-off" style="position:absolute;cursor:pointer;inset:0;background:var(--border-strong);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+                <!-- SMS -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <div style="width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(168,85,247,0.12);display:flex;align-items:center;justify-content:center;color:#a855f7;font-size:1.1rem;flex-shrink:0;"><i class="ph-fill ph-chat-circle-text"></i></div>
+                    <div>
+                      <div style="font-weight:600;font-size:0.9375rem;color:var(--text-primary);">SMS Alerts</div>
+                      <div class="font-size-caption text-muted">Critical incidents only</div>
+                    </div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+                <!-- In-App -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <div style="width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(251,146,60,0.12);display:flex;align-items:center;justify-content:center;color:#fb923c;font-size:1.1rem;flex-shrink:0;"><i class="ph-fill ph-app-window"></i></div>
+                    <div>
+                      <div style="font-weight:600;font-size:0.9375rem;color:var(--text-primary);">In-App Banner</div>
+                      <div class="font-size-caption text-muted">While using SafeWatch</div>
+                    </div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
               </div>
-
-              <button class="btn btn-outline" style="justify-content: center;"><i class="ph ph-gear"></i> Edit
-                Preferences</button>
             </div>
 
-
-              <!-- Alert Radius -->
-              <div class="card" style="align-items: center; text-align: center; padding: var(--space-8);">
-                <h4 class="mb-6" style="text-align: center; width: 100%;">Alert Radius</h4>
-                <div class="form-group w-full"
-                  style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                  <label class="form-label" style="text-align: center; display: block;">Current Radius</label>
-                  <div class="flex gap-2 justify-center key-row" style="justify-content: center; width: 100%;">
-                    <input type="text" class="form-control" value="0.5 miles" readonly
-                      style="background: var(--bg-tertiary); color: var(--text-muted); max-width: 250px;">
-                    <button class="btn btn-outline" style="padding: 0 1rem;"><i class="ph ph-pencil-simple"></i></button>
-                  </div>
+            <!-- RIGHT: Alert Type Filters -->
+            <div class="card" style="padding:var(--space-6);align-items:stretch;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6);">
+                <div>
+                  <h4 style="margin:0 0 0.2rem;">Alert Type Filters</h4>
+                  <p class="font-size-caption text-muted" style="margin:0;">Select which incidents to alert you</p>
                 </div>
-                <div style="text-align: center; width: 100%;">
-                  <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Update Radius</button>
+                <div class="feature-icon" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;"><i class="ph ph-funnel"></i></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:0;">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#ef4444;flex-shrink:0;"></span>
+                    <div style="font-weight:500;color:var(--text-primary);">Emergencies & Crime</div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></span>
+                    <div style="font-weight:500;color:var(--text-primary);">Suspicious Activity</div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;flex-shrink:0;"></span>
+                    <div style="font-weight:500;color:var(--text-primary);">Traffic & Road Issues</div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider-off" style="position:absolute;cursor:pointer;inset:0;background:var(--border-strong);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;border-bottom:1px solid var(--border-color);">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#22c55e;flex-shrink:0;"></span>
+                    <div style="font-weight:500;color:var(--text-primary);">Community Updates</div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3) 0;">
+                  <div style="display:flex;align-items:center;gap:var(--space-3);">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#a855f7;flex-shrink:0;"></span>
+                    <div style="font-weight:500;color:var(--text-primary);">SafeWatch Tips & Updates</div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider-off" style="position:absolute;cursor:pointer;inset:0;background:var(--border-strong);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;pointer-events:none;display:block;"></span>
+                  </label>
                 </div>
               </div>
+            </div>
 
-              <!-- Quiet Hours -->
-              <div class="card settings-bank-card" style="align-items: center; text-align: center; padding: var(--space-8);">
-                <h4 class="mb-6" style="text-align: center; width: 100%;">Quiet Hours</h4>
-                <div class="flex items-center gap-4 mb-6 text-secondary justify-center settings-item"
-                  style="text-align: left; justify-content: center; width: 100%;">
-                  <div class="feature-icon"
-                    style="width: 48px; height: 48px; font-size: 1.5rem; margin: 0; flex-shrink: 0;"><i
-                      class="ph ph-moon"></i></div>
-                  <div>
-                    <p class="font-weight-label mb-1 text-primary" style="font-size: 1.1rem;">10:00 PM – 7:00 AM
-                    </p>
-                    <p class="font-size-caption mb-0 text-muted">No non-urgent alerts during this window</p>
-                  </div>
-                </div>
-                <div style="text-align: center; width: 100%;">
-                  <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Edit Quiet Hours</button>
+            <!-- BOTTOM LEFT: Alert Radius -->
+            <div class="card" style="padding:var(--space-6);align-items:stretch;">
+              <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6);">
+                <div class="feature-icon" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;"><i class="ph ph-map-trifold"></i></div>
+                <div>
+                  <h4 style="margin:0 0 0.2rem;">Alert Radius</h4>
+                  <p class="font-size-caption text-muted" style="margin:0;">Distance from your home to receive alerts</p>
                 </div>
               </div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-3);">
+                <span class="font-size-caption text-muted">Radius</span>
+                <span id="radiusDisplay" style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--accent-color);">0.5 mi</span>
+              </div>
+              <input type="range" id="radiusSlider" min="0.1" max="5" step="0.1" value="0.5"
+                style="width:100%;accent-color:var(--accent-color);height:6px;border-radius:6px;cursor:pointer;margin-bottom:var(--space-4);">
+              <div style="display:flex;justify-content:space-between;" class="font-size-caption text-muted">
+                <span>0.1 mi</span><span>1 mi</span><span>2 mi</span><span>5 mi</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-2);margin-top:var(--space-4);">
+                <button onclick="setRadius(0.5)" class="btn btn-outline" style="padding:0.4rem 0.5rem;font-size:0.8rem;">0.5 mi</button>
+                <button onclick="setRadius(1)" class="btn btn-outline" style="padding:0.4rem 0.5rem;font-size:0.8rem;">1 mi</button>
+                <button onclick="setRadius(2)" class="btn btn-outline" style="padding:0.4rem 0.5rem;font-size:0.8rem;">2 mi</button>
+              </div>
+            </div>
 
+            <!-- BOTTOM RIGHT: Quiet Hours -->
+            <div class="card" style="padding:var(--space-6);align-items:stretch;">
+              <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6);">
+                <div class="feature-icon" style="width:44px;height:44px;font-size:1.3rem;margin:0;flex-shrink:0;"><i class="ph ph-moon-stars"></i></div>
+                <div>
+                  <h4 style="margin:0 0 0.2rem;">Quiet Hours</h4>
+                  <p class="font-size-caption text-muted" style="margin:0;">Pause non-urgent alerts while you sleep</p>
+                </div>
+              </div>
+              <!-- Quiet hours toggle -->
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius);border:1px solid var(--border-color);">
+                <div>
+                  <div style="font-weight:600;color:var(--text-primary);">Enable Quiet Hours</div>
+                  <div class="font-size-caption text-muted">Non-urgent alerts paused</div>
+                </div>
+                <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                  <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                  <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                  <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                </label>
+              </div>
+              <div class="quiet-hours-time-grid">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label class="form-label">From</label>
+                  <input type="time" class="form-control" value="22:00">
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label class="form-label">Until</label>
+                  <input type="time" class="form-control" value="07:00">
+                </div>
+              </div>
+              <div style="margin-top:var(--space-4);padding:var(--space-3);background:var(--accent-soft);border-radius:var(--radius-sm);border:1px solid rgba(var(--accent-rgb),0.2);">
+                <p class="font-size-caption" style="color:var(--accent-color);margin:0;"><i class="ph-fill ph-info"></i> Emergency alerts (High severity) are always delivered immediately.</p>
+              </div>
+            </div>
+
+          </div><!-- end 2-col grid -->
+
+          <!-- Save bar -->
+          <div class="notif-save-bar">
+            <button class="btn btn-outline">Reset to Defaults</button>
+            <button class="btn btn-primary" onclick="alert('Notification preferences saved!')"><i class="ph ph-floppy-disk"></i> Save Preferences</button>
           </div>
-        </div>
+
+        </div><!-- end #settings -->
+
 
         <!-- ================= MY PROFILE ================= -->
         <div id="profile" class="dashboard-section">
-          <div class="card text-left" style="max-width: 800px; margin-inline: auto; align-items: flex-start;">
-            <h4 class="mb-6">Resident Profile</h4>
 
-            <form data-validate action="#" class="w-full">
-              <div class="grid grid-cols-2 gap-4">
-                <div class="form-group">
-                  <label class="form-label">First Name</label>
-                  <input type="text" class="form-control" value="Sarah" required>
+          <!-- Resident Hero Card -->
+          <div class="profile-hero-card">
+            <div class="profile-hero-inner">
+              <div style="display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap;">
+                <div class="profile-avatar-wrap">
+                  <img src="assets/images/avatar-testimonial-woman-cafe-owner.jpg" alt="Sarah Mitchell" class="profile-avatar" id="profileImage">
+                  <button type="button" class="profile-avatar-btn" title="Change profile photo" onclick="alert('Upload photo dialog')">
+                    <i class="ph ph-camera"></i>
+                  </button>
                 </div>
-                <div class="form-group">
-                  <label class="form-label">Last Name</label>
-                  <input type="text" class="form-control" value="Mitchell">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-2 gap-4">
-                <div class="form-group">
-                  <label class="form-label">Neighborhood / HOA</label>
-                  <input type="text" class="form-control" value="Maplewood Estates" disabled
-                    style="background: var(--bg-tertiary); color: var(--text-muted);">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Phone Number</label>
-                  <input type="tel" class="form-control" value="(555) 234-5678" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Home Address (verified, not shared publicly)</label>
-                <input type="text" class="form-control mb-2" value="142 Maple Street" required>
-                <div class="grid grid-cols-2 gap-4">
-                  <input type="text" class="form-control" value="Austin" required>
-                  <input type="text" class="form-control" value="78701" required>
-                </div>
-              </div>
-
-              <hr style="border: none; border-top: 1px solid var(--border-color); margin: var(--space-6) 0;">
-              <h5 class="mb-4">Emergency Contacts</h5>
-
-              <div class="mb-6">
-                <div class="flex justify-between items-center"
-                  style="padding: var(--space-3) 0; border-bottom: 1px solid var(--border-color); gap: var(--space-4);">
-                  <div>
-                    <div class="font-weight-label">James Carter</div>
-                    <div class="font-size-caption text-muted">james@example.com · Block Captain</div>
+                <div>
+                  <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
+                    <h2 style="margin: 0; font-size: 1.75rem;">Sarah Mitchell</h2>
+                    <span class="status-badge status-success"><i class="ph-fill ph-shield-check"></i> Verified Resident</span>
+                    <span class="status-badge" style="background: rgba(6, 182, 212, 0.12); color: var(--accent-color);"><i class="ph-fill ph-crown"></i> HOA President</span>
                   </div>
-                  <div class="font-size-caption text-muted">Trusted Neighbor</div>
-                </div>
-                <div class="flex justify-between items-center" style="padding: var(--space-3) 0; gap: var(--space-4);">
-                  <div>
-                    <div class="font-weight-label">Maria Thompson</div>
-                    <div class="font-size-caption text-muted">maria@example.com</div>
+                  <p class="text-secondary" style="margin: 0.35rem 0 0; font-size: var(--size-label);">
+                    Maplewood Estates &middot; Block 4 &middot; 142 Maple Street
+                  </p>
+                  <div class="profile-meta-pills">
+                    <span class="profile-pill"><i class="ph ph-calendar"></i> Member since Jan 2026</span>
+                    <span class="profile-pill"><i class="ph ph-shield"></i> Safety Score 98%</span>
+                    <span class="profile-pill"><i class="ph ph-bell-simple-ringing"></i> 14 Reports Filed</span>
                   </div>
-                  <div class="font-size-caption text-muted">Family Member</div>
                 </div>
               </div>
-
-              <div class="flex justify-between items-center profile-actions w-full">
-                <button type="button" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i
-                    class="ph ph-user-plus"></i> Add Contact</button>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+              <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+                <button type="button" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;" onclick="alert('Public profile link copied!')">
+                  <i class="ph ph-share-network"></i> Share Profile
+                </button>
               </div>
-            </form>
+            </div>
+            <!-- Profile Completion Progress -->
+            <div style="margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--border-color);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; font-size: var(--size-caption);">
+                <span class="text-muted"><i class="ph ph-sparkle text-accent"></i> Profile Strength: <strong>92% Complete</strong></span>
+                <span class="text-accent font-weight-label">Verified</span>
+              </div>
+              <div style="height: 6px; width: 100%; background: var(--bg-tertiary); border-radius: 999px; overflow: hidden;">
+                <div style="height: 100%; width: 92%; background: var(--gradient-accent); border-radius: 999px;"></div>
+              </div>
+            </div>
           </div>
+
+          <!-- Main Profile Grid -->
+          <div class="profile-main-grid">
+
+            <!-- LEFT COLUMN -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+
+              <!-- Card 1: Personal Information -->
+              <div class="card" style="padding: var(--space-6); align-items: stretch;">
+                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6);">
+                  <div class="feature-icon" style="width: 44px; height: 44px; font-size: 1.3rem; margin: 0; flex-shrink: 0;"><i class="ph ph-user"></i></div>
+                  <div>
+                    <h4 style="margin: 0 0 0.2rem;">Personal Information</h4>
+                    <p class="font-size-caption text-muted" style="margin: 0;">Your public and account contact details</p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="form-group mb-0">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" value="Sarah" required>
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" value="Mitchell" required>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="form-group mb-0">
+                    <label class="form-label">Email Address</label>
+                    <div style="position: relative;">
+                      <input type="email" class="form-control" value="sarah.m@maplewood.org" required>
+                      <span class="status-badge status-success" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 0.7rem;">Verified</span>
+                    </div>
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" value="(555) 234-5678" required>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="form-group mb-0">
+                    <label class="form-label">Preferred Language</label>
+                    <select class="form-control">
+                      <option selected>English (US)</option>
+                      <option>Spanish (Español)</option>
+                      <option>French (Français)</option>
+                    </select>
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">Timezone</label>
+                    <select class="form-control">
+                      <option selected>Central Time (CT)</option>
+                      <option>Eastern Time (ET)</option>
+                      <option>Pacific Time (PT)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group mb-0">
+                  <label class="form-label">Resident Bio / Watch Notes</label>
+                  <textarea class="form-control" rows="3" style="resize: vertical;">HOA President at Maplewood Estates. Passionate about community safety, pedestrian crosswalks, and neighborhood watch coordination.</textarea>
+                </div>
+              </div>
+
+              <!-- Card 2: Property & Residence Verification -->
+              <div class="card" style="padding: var(--space-6); align-items: stretch;">
+                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6);">
+                  <div class="feature-icon" style="width: 44px; height: 44px; font-size: 1.3rem; margin: 0; flex-shrink: 0;"><i class="ph ph-house-line"></i></div>
+                  <div>
+                    <h4 style="margin: 0 0 0.2rem;">Residence &amp; Neighborhood</h4>
+                    <p class="font-size-caption text-muted" style="margin: 0;">Verified community address and household details</p>
+                  </div>
+                </div>
+
+                <div class="form-group mb-4">
+                  <label class="form-label">Home Address (verified by HOA)</label>
+                  <input type="text" class="form-control" value="142 Maple Street" required>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="form-group mb-0">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" value="Austin" required>
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">State / ZIP Code</label>
+                    <input type="text" class="form-control" value="TX 78701" required>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="form-group mb-0">
+                    <label class="form-label">Neighborhood / HOA</label>
+                    <input type="text" class="form-control" value="Maplewood Estates" disabled style="background: var(--bg-tertiary); color: var(--text-muted);">
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">Block / Sector</label>
+                    <input type="text" class="form-control" value="Block 4 (North Sector)" disabled style="background: var(--bg-tertiary); color: var(--text-muted);">
+                  </div>
+                </div>
+
+                <div style="background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.25); border-radius: var(--radius); padding: var(--space-3) var(--space-4); display: flex; align-items: center; gap: var(--space-3);">
+                  <i class="ph-fill ph-seal-check text-success" style="font-size: 1.5rem; flex-shrink: 0;"></i>
+                  <div>
+                    <div style="font-weight: 600; font-size: 0.875rem; color: var(--text-primary);">Address Verified on Jan 15, 2026</div>
+                    <div class="font-size-caption text-muted">Verified by Maplewood HOA Board &middot; Registry ID #MW-402</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+
+              <!-- Card 3: Emergency Contacts -->
+              <div class="card" style="padding: var(--space-6); align-items: stretch;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-2);">
+                  <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <div class="feature-icon" style="width: 44px; height: 44px; font-size: 1.3rem; margin: 0; flex-shrink: 0;"><i class="ph ph-phone-call"></i></div>
+                    <div>
+                      <h4 style="margin: 0 0 0.2rem;">Emergency Contacts</h4>
+                      <p class="font-size-caption text-muted" style="margin: 0;">Alerted automatically if you trigger an SOS</p>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8125rem;" onclick="alert('Add Contact modal')">
+                    <i class="ph ph-user-plus"></i> Add Contact
+                  </button>
+                </div>
+
+                <!-- Contact 1 -->
+                <div class="profile-contact-item">
+                  <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <img src="assets/images/avatar-testimonial-man-tech-cto.jpg" alt="James Carter" class="profile-contact-avatar" style="border: 2px solid var(--border-color);">
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">James Carter</div>
+                      <div class="font-size-caption text-muted">james@example.com &middot; (555) 345-6789</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <span class="status-badge" style="background: rgba(34, 197, 94, 0.12); color: var(--accent-color);">Trusted Neighbor</span>
+                    <button type="button" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.9rem;" title="Edit contact" onclick="alert('Edit James Carter')"><i class="ph ph-pencil-simple"></i></button>
+                  </div>
+                </div>
+
+                <!-- Contact 2 -->
+                <div class="profile-contact-item">
+                  <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <img src="assets/images/avatar-testimonial-woman-restaurant-gm.jpg" alt="Maria Thompson" class="profile-contact-avatar" style="border: 2px solid var(--border-color);">
+                    <div>
+                      <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">Maria Thompson</div>
+                      <div class="font-size-caption text-muted">maria@example.com &middot; (555) 987-6543</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: var(--space-3);">
+                    <span class="status-badge" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">Immediate Family</span>
+                    <button type="button" class="icon-btn" style="width: 32px; height: 32px; font-size: 0.9rem;" title="Edit contact" onclick="alert('Edit Maria Thompson')"><i class="ph ph-pencil-simple"></i></button>
+                  </div>
+                </div>
+
+                <div style="margin-top: var(--space-2); padding: var(--space-3); background: var(--bg-tertiary); border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; gap: var(--space-2); align-items: flex-start;">
+                  <i class="ph-fill ph-info text-accent" style="font-size: 1rem; margin-top: 2px; flex-shrink: 0;"></i>
+                  <span class="font-size-caption text-muted">In an emergency SOS, contacts receive real-time GPS location and SMS alert within 15 seconds.</span>
+                </div>
+              </div>
+
+              <!-- Card 4: Security & Privacy -->
+              <div class="card" style="padding: var(--space-6); align-items: stretch;">
+                <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6);">
+                  <div class="feature-icon" style="width: 44px; height: 44px; font-size: 1.3rem; margin: 0; flex-shrink: 0;"><i class="ph ph-shield-check"></i></div>
+                  <div>
+                    <h4 style="margin: 0 0 0.2rem;">Account Security &amp; Privacy</h4>
+                    <p class="font-size-caption text-muted" style="margin: 0;">Manage authentication and map visibility</p>
+                  </div>
+                </div>
+
+                <!-- 2FA Row -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-color); margin-bottom: var(--space-4); flex-wrap: wrap; gap: var(--space-2);">
+                  <div>
+                    <div style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary);">Two-Factor Authentication (2FA)</div>
+                    <div class="font-size-caption text-muted">Secured via SMS &middot; (555) 234-5678</div>
+                  </div>
+                  <span class="status-badge status-success"><i class="ph-fill ph-check-circle"></i> Active</span>
+                </div>
+
+                <!-- Privacy Toggle 1 -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-color); margin-bottom: var(--space-4);">
+                  <div style="padding-right: var(--space-3);">
+                    <div style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary);">Mask Exact House Number</div>
+                    <div class="font-size-caption text-muted">Show only block-level info on community map</div>
+                  </div>
+                  <label class="notif-toggle" style="position:relative;display:inline-block;width:48px;height:26px;flex-shrink:0;">
+                    <input type="checkbox" checked style="opacity:0;width:0;height:0;">
+                    <span class="notif-slider" style="position:absolute;cursor:pointer;inset:0;background:var(--accent-color);border-radius:26px;transition:0.3s;"></span>
+                    <span style="position:absolute;height:18px;width:18px;left:4px;bottom:4px;background:white;border-radius:50%;transition:0.3s;transform:translateX(22px);pointer-events:none;display:block;"></span>
+                  </label>
+                </div>
+
+                <!-- Password row -->
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2);">
+                  <div>
+                    <div style="font-weight: 600; font-size: 0.9375rem; color: var(--text-primary);">Account Password</div>
+                    <div class="font-size-caption text-muted">Last changed 45 days ago</div>
+                  </div>
+                  <button type="button" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8125rem;" onclick="alert('Change password modal')">Change</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Profile Actions Bar -->
+          <div class="profile-actions-bar">
+            <button type="button" class="btn btn-outline" onclick="alert('Changes discarded')">Discard Changes</button>
+            <button type="button" class="btn btn-primary" onclick="alert('Profile updated successfully!')"><i class="ph ph-floppy-disk"></i> Save Profile</button>
+          </div>
+
         </div>
 
 
@@ -1083,6 +1864,39 @@
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script>
+    // Radius slider
+    function setRadius(val) {
+      const slider = document.getElementById('radiusSlider');
+      const display = document.getElementById('radiusDisplay');
+      if (slider && display) {
+        slider.value = val;
+        display.textContent = parseFloat(val).toFixed(1) + ' mi';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('radiusSlider');
+      const display = document.getElementById('radiusDisplay');
+      if (slider && display) {
+        slider.addEventListener('input', function() {
+          display.textContent = parseFloat(this.value).toFixed(1) + ' mi';
+        });
+      }
+      // Make toggle checkboxes visually update thumb position
+      document.querySelectorAll('.notif-toggle input[type=checkbox]').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+          const thumb = this.parentElement.querySelector('span:last-child');
+          if (thumb) {
+            thumb.style.transform = this.checked ? 'translateX(22px)' : 'translateX(0)';
+          }
+          const slider = this.nextElementSibling;
+          if (slider) {
+            slider.style.background = this.checked ? 'var(--accent-color)' : 'var(--border-strong)';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

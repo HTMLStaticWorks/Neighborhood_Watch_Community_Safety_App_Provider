@@ -357,22 +357,24 @@ print(charge.status) # "succeeded"`
     }
   }
 
-  // Back to Top
-  const backToTop = document.createElement('button');
-  backToTop.type = 'button';
-  backToTop.className = 'back-to-top';
-  backToTop.setAttribute('aria-label', 'Back to top');
-  backToTop.innerHTML = '<i class="ph ph-arrow-up"></i>';
-  document.body.appendChild(backToTop);
+  // Back to Top (skip on dashboard pages)
+  if (!document.querySelector('.dashboard-layout')) {
+    const backToTop = document.createElement('button');
+    backToTop.type = 'button';
+    backToTop.className = 'back-to-top';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    backToTop.innerHTML = '<i class="ph ph-arrow-up"></i>';
+    document.body.appendChild(backToTop);
 
-  const toggleBackToTop = () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  };
-  window.addEventListener('scroll', toggleBackToTop, { passive: true });
-  toggleBackToTop();
+    const toggleBackToTop = () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    };
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
 
-  backToTop.addEventListener('click', () => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-  });
+    backToTop.addEventListener('click', () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
 });

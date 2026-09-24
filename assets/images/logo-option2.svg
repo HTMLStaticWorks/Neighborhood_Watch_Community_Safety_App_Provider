@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 52" fill="none" aria-label="SafeWatch Option 2">
+  <defs>
+    <!-- Tech Hexagon / Shield Gradient -->
+    <linearGradient id="swOpt2Grad" x1="6" y1="4" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="45%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Radar Pulse Wave Gradient -->
+    <linearGradient id="swWaveGrad" x1="14" y1="14" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+
+    <filter id="swOpt2Shadow" x="2" y="2" width="46" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#06b6d4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <style>
+    .brand-title-safe { fill: #0b1020; }
+    .brand-title-watch { fill: #16a34a; }
+    .brand-subtitle { fill: #64748b; }
+    @media (prefers-color-scheme: dark) {
+      .brand-title-safe { fill: #f8fafc; }
+      .brand-title-watch { fill: #22c55e; }
+      .brand-subtitle { fill: #94a3b8; }
+    }
+  </style>
+
+  <!-- ================= EMBLEM: HEXAGONAL SENTINEL SHIELD ================= -->
+  <g filter="url(#swOpt2Shadow)">
+    <!-- Hexagonal Security Shield Base -->
+    <path d="M25 4 L42 12 L42 32 L25 44 L8 32 L8 12 Z" fill="url(#swOpt2Grad)"/>
+    
+    <!-- Outer Inset Border -->
+    <path d="M25 7.5 L39 14 L39 30 L25 40 L11 30 L11 14 Z" fill="#0f172a" fill-opacity="0.25"/>
+
+    <!-- Concentric Safety Pulse Arc 1 (Outer Wave) -->
+    <path d="M16 20 C18 16 32 16 34 20" stroke="#86efac" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+    
+    <!-- Concentric Safety Pulse Arc 2 (Mid Wave) -->
+    <path d="M19 23 C20.5 20.5 29.5 20.5 31 23" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+    <!-- Central Sentinel Node / Beacon -->
+    <circle cx="25" cy="27" r="4.5" fill="url(#swWaveGrad)"/>
+    <circle cx="25" cy="27" r="2.2" fill="#ffffff"/>
+
+    <!-- Protective Padlock / Shackle Base Arch -->
+    <path d="M20 35 L30 35 L28 32 L22 32 Z" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <!-- ================= BRAND TYPOGRAPHY ================= -->
+  <text x="56" y="29" font-family="'Outfit', 'Inter', -apple-system, sans-serif" font-size="25" font-weight="800" letter-spacing="-0.6" class="brand-title-safe">Safe</text>
+  <text x="108" y="29" font-family="'Outfit', 'Inter', -apple-system, sans-serif" font-size="25" font-weight="800" letter-spacing="-0.6" class="brand-title-watch">Watch</text>
+  <text x="57" y="42" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="7.5" font-weight="700" letter-spacing="2.2" class="brand-subtitle">SENTINEL COMMUNITY WATCH</text>
+</svg>

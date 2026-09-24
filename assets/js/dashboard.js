@@ -28,25 +28,41 @@ document.addEventListener('DOMContentLoaded', () => {
       topbarTitle.innerText = link.innerText.trim();
 
       // Close mobile sidebar if open
-      document.getElementById('sidebar').classList.remove('open');
+      closeSidebarFn();
     });
   });
+
+  // Topbar Profile Avatar Click Navigation
+  const topbarProfileBtn = document.getElementById('topbarProfileBtn');
+  if (topbarProfileBtn) {
+    topbarProfileBtn.addEventListener('click', () => {
+      const profileLink = document.querySelector('.sidebar-link[data-target="profile"]');
+      if (profileLink) {
+        profileLink.click();
+      }
+    });
+  }
 
   // Mobile Sidebar Toggle
   const openBtn = document.getElementById('openSidebar');
   const closeBtn = document.getElementById('closeSidebar');
   const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-  if (openBtn) {
-    openBtn.addEventListener('click', () => {
-      sidebar.classList.add('open');
-    });
+  function openSidebar() {
+    sidebar.classList.add('open');
+    if (sidebarOverlay) { sidebarOverlay.style.display = 'block'; }
+    document.body.style.overflow = 'hidden';
   }
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-    });
+  function closeSidebarFn() {
+    sidebar.classList.remove('open');
+    if (sidebarOverlay) { sidebarOverlay.style.display = 'none'; }
+    document.body.style.overflow = '';
   }
+
+  if (openBtn) { openBtn.addEventListener('click', openSidebar); }
+  if (closeBtn) { closeBtn.addEventListener('click', closeSidebarFn); }
+  if (sidebarOverlay) { sidebarOverlay.addEventListener('click', closeSidebarFn); }
 
   // Chart.js Mock Data
   const ctx = document.getElementById('volumeChart');
